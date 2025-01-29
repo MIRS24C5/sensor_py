@@ -7,6 +7,8 @@ trig_pin = 15
 echo_pin = 14
 speed_of_sound = 34370
 
+distance = 0.0
+
 ser = serial.Serial('/dev/ttyACM0', 9600)
 
 GPIO.setmode(GPIO.BCM)
@@ -35,8 +37,8 @@ def get_distance():
 	
 while True:
 	try:
-		distance = '{:.1f}'.format(get_distance())
-		print("Distance: " + distance + "cm")
+		distance = get_distance()
+		print("Distance: {:.1f} cm".format(distance))
 		send_str = f"{distance:.2f}\n"
 		ser.write(send_str.encode('utf-8'))
 		time.sleep(1)
