@@ -70,7 +70,7 @@ try:
 		ser.write(send_str.encode('utf-8'))
 		time.sleep(0.1)						#データ送信の感覚調整
 		ser.flush()							#送信バッファをフラッシュ
-		time.sleep(1)						#次の測定まで１秒待機
+		time.sleep(4)						#次の測定まで4秒待機
 		
 except KeyboardInterrupt:					#Ctrl+Cで終了
 	print("\nProgram interrupted by user")
